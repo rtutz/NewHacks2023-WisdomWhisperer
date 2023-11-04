@@ -343,3 +343,15 @@ pip-selfcheck.json
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode
+backended/.env
+backended/env/share/bash-completion/completions/yt-dlp
+backended/env/share/doc/yt_dlp/README.txt
+backended/env/share/fish/vendor_completions.d/yt-dlp.fish
+backended/env/share/man/man1/mid3cp.1
+backended/env/share/man/man1/mid3iconv.1
+backended/env/share/man/man1/mid3v2.1
+backended/env/share/man/man1/moggsplit.1
+backended/env/share/man/man1/mutagen-inspect.1
+backended/env/share/man/man1/mutagen-pony.1
+backended/env/share/man/man1/yt-dlp.1
+backended/env/share/zsh/site-functions/_yt-dlp
