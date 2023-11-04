@@ -1,10 +1,10 @@
 from flask import Flask
 
+from routes.whisp import whisp
+
 app = Flask(__name__)
 
-@app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
+app.register_blueprint(whisp, url_prefix='/endpoint')  # Registering the Blueprint
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
