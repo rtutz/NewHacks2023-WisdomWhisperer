@@ -1,8 +1,11 @@
 import os
+
+# GPC Vertex AI Stuff
+from langchain.llms import VertexAI
+from langchain.embeddings import VertexAIEmbeddings
+
 from langchain.vectorstores import Chroma
-from langchain.chat_models import ChatOpenAI
 from langchain.chains import RetrievalQA
-from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 
@@ -16,7 +19,7 @@ from flask_jwt_extended import jwt_required
 chat = Blueprint('chat', __name__)
 
 dotenv.load_dotenv()
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "../../GACKey.json"
 
 
 # The Chroma storage is not in the routes directory, it's out by 1
@@ -25,8 +28,9 @@ parent_dir = os.path.dirname(current_dir)
 persist_directory = os.path.join(parent_dir, "storage")
 
 
-embedding = OpenAIEmbeddings(openai_api_key=os.getenv("OPENAI_API_KEY"))
-vectordb = Chroma(persist_directory=persist_directory, embedding_function=embedding)
+embeddings = VertexAIEmbeddings()
+
+vectordb = Chroma(persist_directory=persist_directory, embedding_function=embeddings)
 retriever = vectordb.as_retriever(search_type="similarity", search_kwargs={"k": 3})
 
 # qa = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=retriever)
@@ -34,7 +38,7 @@ global memory
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
 qa = ConversationalRetrievalChain.from_llm(
-    llm = ChatOpenAI(model_name='gpt-3.5-turbo', temperature=0),
+    llm = VertexAI(model_name="text-bison@001", max_output_tokens=1000, temperature=0.3),
     retriever = retriever,
     memory = memory,
     # return_source_documents = True,

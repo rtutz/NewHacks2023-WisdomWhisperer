@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,pycharm
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,pycharm
 
+.env
+GACKey.json
+
 ### macOS ###
 # General
 .DS_Store
@@ -343,6 +346,7 @@ pip-selfcheck.json
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode
+<<<<<<< HEAD
 
 backended/.env
 backended/env/share/bash-completion/completions/yt-dlp
@@ -360,3 +364,5 @@ backended/env/share/zsh/site-functions/_yt-dlp
 env
 backended/.env
 
+=======
+>>>>>>> 8fb7110 (Temp Stash)
