@@ -1,6 +1,6 @@
 import Banner from './components/Banner'
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-
+import Home from './components/Home';
 
 function App() {
 
@@ -12,6 +12,7 @@ function App() {
       <Router>
         <Routes>
           <Route exact path='/' element={<Banner/>}/>
+          <Route path='/home' element={<Home/>}/>
         </Routes>
       </Router>
     </>
