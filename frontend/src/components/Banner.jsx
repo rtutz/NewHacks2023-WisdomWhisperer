@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
+import LoginButton from "./LoginButton";
 
 
 function Banner () {
@@ -15,7 +16,8 @@ function Banner () {
                         Welcome to StudyBuddy – Your all-in-one study companion! Upload lecture videos, ask questions, and create customized tests to supercharge your learning journey. Explore, engage, and excel with StudyBuddy today!
                         </p>  
                         <div className="mt-44">
-                        <Button variant="outline">Button</Button>
+                        {/* <Button variant="outline">Button</Button> */}
+                        <LoginButton></LoginButton>
                         </div>
                     </div>
                     

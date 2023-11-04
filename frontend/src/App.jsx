@@ -1,6 +1,5 @@
 import Banner from './components/Banner'
-import {BrowserRouter as Router, Route,Link, Routes} from 'react-router-dom';
-
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 
 function App() {
