@@ -52,7 +52,7 @@ function QuizQuestion({ question, answerArr, id, correctAns }) {
           className={`fixed bottom-8 right-8 ${
             correct === true ? "bg-green-500" : correct === false ? "bg-red-300" : ""
           } ${
-            correct === true ? "hover:bg-green-500/80" : correct === false ? "hover:bg-red-300/80" : ""
+            correct === true ? "hover:bg-green-500" : correct === false ? "hover:bg-red-300" : ""
           }`}
         >
           Check Answer
