@@ -6,12 +6,12 @@ function App() {
   return (
     <>
       <div className='flex flex-col justify-center items-center gap-4'>
-        {/* <QuizQuestion question={"Prove this transformation is linear"} answerArr={["Answer 1", "Answer 2", "Answer 3"]} id={1} correctAns={"Answer 3"}/> */}
-        <Summary
+        <QuizQuestion question={"Prove this transformation is linear"} answerArr={["Answer 1", "Answer 2", "Answer 3"]} id={1} correctAns={"Answer 3"}/>
+        {/* <Summary
           summary={
             "Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay Whatever heres an essay "
           }
-        />
+        /> */}
       </div>
       {/* <div>
         <Summary

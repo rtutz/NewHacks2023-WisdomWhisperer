@@ -20,6 +20,9 @@ function QuizQuestion({ question, answerArr, id, correctAns }) {
     }
     else {
       setCorrect(false)
+      setTimeout(() => {
+        setCorrect(null);
+      }, 1000);
     }
   };
 
@@ -44,10 +47,10 @@ function QuizQuestion({ question, answerArr, id, correctAns }) {
         <Button
           size="lg"
           type="button"
-          variant="outline"
+          variant="secondary"
           onClick={checkAns}
           className={`fixed bottom-8 right-8 ${
-            correct === true ? "border-green-500" : correct === false ? "border-red-300" : ""
+            correct === true ? "bg-green-500" : correct === false ? "bg-red-300" : ""
           }`}
         >
           Check Answer
