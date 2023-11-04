@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 
-function QuizQuestion({question, answer, id}) {
+function QuizQuestion({question, answerArr, id, correctAns}) {
   const [correct, setCorrect] = useState(false)
 
   return (
