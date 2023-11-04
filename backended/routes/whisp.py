@@ -26,12 +26,9 @@ PROCESSED_DB_PORT = os.getenv('PROCESSED_DB_PORT')
 PROCESSED_DB_PASSWORD = os.getenv('PROCESSED_DB_PASSWORD')
 
 
-# @whisp.route('/transcribe', methods=['POST'])
 def transcribe(yturl):
     return_text = ""
     try:
-        # data = request.get_json()
-        # yturl = data.get('yturl')
         urls = [yturl]
         regex = "^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube(-nocookie)?\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|live\/|v\/)?)([\w\-]+)(\S+)?$"
         uuid = re.search(regex, yturl, re.IGNORECASE).group(6)
@@ -56,14 +53,15 @@ def transcribe(yturl):
                             shutil.rmtree(file_path)
                     except Exception as e:
                         print('Failed to delete %s. Reason: %s' % (file_path, e))
-                response = {"transcription": str(return_text), "uuid": uuid, "response": 200}
+                response = {"transcription": str(return_text), "uuid": uuid}
                 return response
             except:
-                return jsonify({"message": "We hit an error", "response": 500})
+                raise Exception("We hit an error")
         except:
-            return jsonify({"message": "Error transcribing", "response": 500})
+            raise Exception("Error transcribing")
     except:
-        return jsonify({"message": "Error with URL", "response": 500})
+        raise Exception("Error with URL")
+
 
 @whisp.route('/add', methods=['POST'])
 def add():
@@ -82,19 +80,9 @@ def add():
         else:
             try:
                 transcription = transcribe(yturl)
-                print(transcription)
-                if transcription['response'] == 200:
-                    return transcription
-                else:
-                    return jsonify("We hit an error"), 500
-            # except:
-            #     return jsonify("We hit an error"), 500
-            except Exception as error:
-                # return jsonify("Error with URL"), 400
-                return jsonify("Error with URL", error), 400
-    # except:
-    except Exception as error:
-        # return jsonify("Error with URL"), 400
-        return jsonify("Error with URL", error), 400
-
-# except Exception as error:
+                redis_client.sadd("uuid", uuid)
+                return jsonify(transcription), 200
+            except:
+                return jsonify("We hit an error transcribing"), 500
+    except:
+        return jsonify("Error with URL"), 400
