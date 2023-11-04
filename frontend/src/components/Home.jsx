@@ -1,6 +1,11 @@
+import SideBar from "./SideBar";
+
 function Home () {
     return (
-        <p>Home</p>
+        <div className="flex">
+            <SideBar/>
+            <p>test</p>
+        </div>
     )
 }
 
