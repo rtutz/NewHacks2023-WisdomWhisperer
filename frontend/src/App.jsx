@@ -3,7 +3,6 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Home from './components/Home';
 
 function App() {
-
   return (
     <>
       {/* <div className='flex flex-col justify-center items-center gap-4'>
@@ -16,7 +15,7 @@ function App() {
         </Routes>
       </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
