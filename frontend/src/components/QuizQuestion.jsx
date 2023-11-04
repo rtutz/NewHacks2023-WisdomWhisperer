@@ -22,7 +22,7 @@ function QuizQuestion({ question, answerArr, id, correctAns }) {
       setCorrect(false)
       setTimeout(() => {
         setCorrect(null);
-      }, 1000);
+      }, 500);
     }
   };
 
@@ -51,6 +51,8 @@ function QuizQuestion({ question, answerArr, id, correctAns }) {
           onClick={checkAns}
           className={`fixed bottom-8 right-8 ${
             correct === true ? "bg-green-500" : correct === false ? "bg-red-300" : ""
+          } ${
+            correct === true ? "hover:bg-green-500/80" : correct === false ? "hover:bg-red-300/80" : ""
           }`}
         >
           Check Answer
