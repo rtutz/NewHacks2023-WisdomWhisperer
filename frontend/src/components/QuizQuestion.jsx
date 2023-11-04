@@ -25,27 +25,28 @@ function QuizQuestion({ question, answerArr, id, correctAns }) {
 
   return (
     <>
-      <div className="flex flex-col space-y-2">
-        <h2 className="text-xl font-bold text-black dark:text-white">
+      <div className="flex flex-col justify-center space-y-2 min-h-screen">
+        <h2 className="text-4xl font-bold text-black dark:text-white">
           Question {id}
         </h2>
         <p className="text-base text-gray-600 dark:text-gray-300">{question}</p>
         {answerArr.map((answer, index) => (
-          <div
+          <button
             className={`flex flex-row rounded-md border items-center p-4 gap-4 ${
-              selectionArr[index] ? "border-blue-500" : "border-gray-300"
+              selectionArr[index] ? "border-zinc-800" : "border-gray-300"
             }`}
             key={index}
             onClick={() => handleSelection(index)}
           >
             <label>{answer}</label>
-          </div>
+          </button>
         ))}
         <Button
+          size="lg"
           type="button"
           variant="outline"
           onClick={checkAns}
-          className={`${
+          className={`fixed bottom-8 right-8 ${
             correct === true ? "border-green-500" : correct === false ? "border-red-300" : ""
           }`}
         >
