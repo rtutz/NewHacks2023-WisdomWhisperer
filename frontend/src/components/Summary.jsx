@@ -45,9 +45,13 @@ function Summary() {
 
         for (let note of responseData.notes) {
           const videoIdKey = Object.keys(note)[0];  // Get the first key of the note object
-          if (videoIdKey === videoId) {
-              setName(title);
-              setSummary(summary);
+          console.log("videoIDKEY:", videoIdKey, "urlID:", urlID);
+
+          if (videoIdKey === urlID) {
+
+              setName(note[videoIdKey].title);
+              setSummary(note[videoIdKey].summary);
+
           }
         }
         console.log('content retrieved.', responseData);
@@ -62,7 +66,7 @@ function Summary() {
     <>
       <div className="flex flex-col m-8 gap-4 min-h-screen">
         <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">
-          {urlID}
+          {name}
         </h1>
         <YouTube videoId={urlID} opts={opts}/>
 

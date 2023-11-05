@@ -27,7 +27,7 @@ def addCourse(course):
     if redis_client.exists(course) > 0:
         redis_client.close()
         return False
-    elif redis_client.set(course, ""):
+    elif redis_client.sadd(course, ""):
         redis_client.close()
         return True
     else:
