@@ -1,5 +1,6 @@
 import { Separator } from "@/components/ui/separator"
-import { ScrollArea } from "@/components/ui/scroll-area"
+// import { ScrollArea } from "@/components/ui/scroll-area"
+import { Link } from "react-router-dom";
 
 function DisplayLectures() {
     const lectureVideosTuple = [
@@ -22,7 +23,7 @@ function DisplayLectures() {
                     allowFullScreen
                     style={{ width: '23rem', height: `${(23 / 16) * 9}rem` }}
                 ></iframe>
-                <h1 className="font-bold text-lg">{videoInfo[1]}</h1>
+                <Link to={{pathname:videoInfo[0], state: {from: videoInfo[0]}}}><h1 className="font-bold text-lg">{videoInfo[1]}</h1></Link>
                 <p className="text-sm text-gray-400">{videoInfo[2]}</p>
                 </div>
             ))}
