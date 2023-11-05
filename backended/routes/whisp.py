@@ -11,6 +11,7 @@ from vertexai.language_models import TextGenerationModel
 from yt_dlp import YoutubeDL
 
 from .documents import upload
+from .courses import getCourses, addCourse
 
 dotenv.load_dotenv()
 
@@ -195,3 +196,17 @@ def notes():
         i += 1
     redis_client.close()
     return jsonify({"notes": return_array, "course": course})
+
+@whisp.route('/getCourseList', methods=['POST'])
+def getCourseList():
+    return_array = getCourses()
+    return jsonify({"courses": return_array}), 200
+
+@whisp.route('/addCourseList', methods=['POST'])
+def addCourseList():
+    data = request.get_json()
+    course_name = data.get('course')
+    if addCourse(course_name):
+        return jsonify({"message": "Success"}), 200
+    else:
+        return jsonify({"message": "Not added, exists or wrong"}), 400

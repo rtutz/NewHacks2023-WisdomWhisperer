@@ -364,3 +364,4 @@ backended/env/share/zsh/site-functions/_yt-dlp
 env
 backended/.env
 backended/routes/__pycache__
+*.pyc
