@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 function SideBar() {
   // const coursesDict = {"Intro to Computers":"CS105"};
   const [courseCodes, setCourseCodes] = useState([]);
+  const [selectedButton, setSelectedButton] = useState(null);
 
   useEffect(() => {
     getCourseCodes();
@@ -47,13 +48,14 @@ function SideBar() {
       <ScrollArea className="mt-4">
         {courseCodes.map((courseCode) => (
           <Button
-            variant="outline"
-            key={courseCode} // assuming courseCode is unique
-            asChild
-            className="mt-2 w-full justify-start"
-          >
-            <Link to={"/home/" + courseCode}>{courseCode}</Link>
-          </Button>
+          variant={selectedButton === courseCode ? 'secondary' : 'outline'}
+          key={courseCode} // assuming courseCode is unique
+          asChild
+          className="mt-2 w-full justify-start"
+          onClick={() => setSelectedButton(courseCode)} // Save the selected button's courseCode
+        >
+          <Link to={"/home/" + courseCode}>{courseCode}</Link>
+        </Button>
         ))}
       </ScrollArea>
     </div>

@@ -59,10 +59,10 @@ function ChatPage() {
         </div>
       </div>
 
-      <form onSubmit={handleMessageSubmit} className="w-8/12 fixed bottom-2">
+      <form onSubmit={handleMessageSubmit} className="mx-auto w-4/6 fixed bottom-4 margin-form">
         <input
           type="text"
-          className="w-full bg-gray-500-spotify p-5 rounded-full"
+          className="w-full bg-gray-500-spotify p-5 rounded-full bg-gray-100"
           placeholder="Type your message here..."
           name="currentMessage"
         />

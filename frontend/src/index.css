@@ -6,6 +6,10 @@
   width: 23rem;
 }
  
+.margin-form {
+  margin-left: 8.33333%;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
