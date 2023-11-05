@@ -29,10 +29,14 @@ function ChatPage() {
         "Content-Type": "application/json",
       },
     });
-    if (response.ok) {
+
       const myJson = await response.json(); // You can parse JSON if needed.
       console.log(myJson);
-    }
+    await setMessages((prevMessages) => [
+      ...prevMessages,
+      { text: myJson.response, user: false },
+    ]);
+
     setIsUser(!isUser); // Toggle isUser
 
     e.target.reset();
