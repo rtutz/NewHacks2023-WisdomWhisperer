@@ -18,6 +18,8 @@ export default function Component() {
   const handleChat = () => {
     navigate(`/home/${id}/chat`)
   }
+
+export default function Component() {
   return (
     <div className="fixed bottom-4 left-4">
       <div className="group relative">
@@ -30,6 +32,7 @@ export default function Component() {
         <ul className="absolute right-0 bottom-14 space-y-2 opacity-0 group-hover:opacity-100 transition duration-200 ease-in-out">
           <li>
             <Button onClick={handleUpload}
+            <Button
               className="w-12 h-12 rounded-full text-white flex items-center justify-center hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
               variant="default"
             >
@@ -38,6 +41,7 @@ export default function Component() {
           </li>
           <li>
             <Button onClick={handleChat}
+            <Button
               className="w-12 h-12 rounded-full text-white flex items-center justify-center hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
               variant="default"
             >
@@ -46,6 +50,7 @@ export default function Component() {
           </li>
           <li>
             <Button onClick={handleQuiz}
+            <Button
               className="w-12 h-12 rounded-full text-white flex items-center justify-center hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
               variant="default"
             >
@@ -57,3 +62,5 @@ export default function Component() {
     </div>
   )
 }
+}
+
