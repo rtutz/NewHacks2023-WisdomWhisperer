@@ -13,6 +13,7 @@ function SideBar() {
 
   useEffect(() => {
     getCourseCodes();
+    clearMemory();
   }, []);
 
   const getCourseCodes = async () => {
@@ -32,6 +33,26 @@ function SideBar() {
       setCourseCodes(responseData.courses);
 
       console.log("content retrieved.", responseData);
+    } catch (error) {
+      console.error("There was a problem with the delete operation:", error);
+    }
+  };
+
+  const clearMemory = async () => {
+    try {
+      const contentResponse = await fetch(
+        `http://127.0.0.1:5555/chat/clear-memory`,
+        {
+          method: "POST",
+          headers: {
+            // 'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      const responseData = await contentResponse.json();
+      console.log("memory deleted", responseData);
     } catch (error) {
       console.error("There was a problem with the delete operation:", error);
     }

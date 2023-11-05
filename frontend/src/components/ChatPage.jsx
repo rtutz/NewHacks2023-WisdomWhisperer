@@ -1,5 +1,5 @@
 import Bubble from "./Bubble";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Separator } from "@/components/ui/separator";
 import FAB from "./FAB";
 import { useLocation } from "react-router-dom";
@@ -8,12 +8,17 @@ function ChatPage() {
   const location = useLocation();
   let path = location.pathname; // "/home/C1/pENQyjXkcw4"
   let segments = path.split("/"); // splits the path into an array of segments
-  segments.pop(); 
-  let courseID = segments.pop(); 
+  segments.pop();
+  let courseID = segments.pop();
   let courseName = courseID;
   const [messages, setMessages] = useState([]);
   const [isUser, setIsUser] = useState(false);
-
+  const chatContainerRef = useRef(null);
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+    }
+  }, [messages]);
   const handleMessageSubmit = async (e) => {
     e.preventDefault();
 
@@ -37,8 +42,8 @@ function ChatPage() {
       },
     });
 
-      const myJson = await response.json(); // You can parse JSON if needed.
-      console.log(myJson);
+    const myJson = await response.json(); // You can parse JSON if needed.
+    console.log(myJson);
     await setMessages((prevMessages) => [
       ...prevMessages,
       { text: myJson.response, user: false },
@@ -55,7 +60,7 @@ function ChatPage() {
         <div className="text-3xl font-bold mx-4 my-4">Chat with Us</div>
         <Separator />
         {/* Chat section */}
-        <div className="flex flex-col mx-9 mt-4">
+        <div ref={chatContainerRef} className="chat-container">
           {messages.map((message, index) => (
             <Bubble
               key={index}
@@ -65,15 +70,17 @@ function ChatPage() {
           ))}
         </div>
       </div>
-
-      <form onSubmit={handleMessageSubmit} className="mx-auto w-4/6 fixed bottom-4 margin-form">
-        <input
-          type="text"
-          className="w-full bg-gray-500-spotify p-5 rounded-full bg-gray-100"
-          placeholder="Type your message here..."
-          name="currentMessage"
-        />
-      </form>
+        <form
+          onSubmit={handleMessageSubmit}
+          className="mx-auto w-4/6 fixed bottom-4 margin-form"
+        >
+          <input
+            type="text"
+            className="w-full bg-gray-500-spotify p-5 rounded-full bg-gray-100"
+            placeholder="Type your message here..."
+            name="currentMessage"
+          />
+        </form>
       <FAB />
     </div>
   );
