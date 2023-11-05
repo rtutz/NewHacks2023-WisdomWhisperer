@@ -19,8 +19,10 @@ function DisplayLectures() {
   const [urlID, setUrlID] = useState("");
 
   useEffect(() => {
+    console.log("displayLecture useEffect called");
+    console.log("courseID:", courseID);
     getContentData();
-  }, []);
+  }, [location]);
 
   const getContentData = async () => {
     try {
@@ -40,7 +42,7 @@ function DisplayLectures() {
         console.log("videoIDKEY:", videoIdKey, "urlID:", urlID);
         setLectureVideosTuple((prevState) => [
           ...prevState,
-          { title: note[videoIdKey].title, summary: note[videoIdKey].summary },
+          { title: note[videoIdKey].title, videoId: videoIdKey },
         ]);
         console.log("added to videos tuple: ", setLectureVideosTuple);
       }
@@ -58,14 +60,14 @@ function DisplayLectures() {
           {lectureVideosTuple.map((videoInfo, index) => (
             <div key={index}>
               <iframe
-                src={`https://www.youtube.com/embed/${videoInfo[0]}`}
+                src={`https://www.youtube.com/embed/${videoInfo.videoId}`}
                 allowFullScreen
                 style={{ width: "23rem", height: `${(23 / 16) * 9}rem` }}
               ></iframe>
               <Link
-                to={{ pathname: videoInfo[0], state: { from: videoInfo[0] } }}
+                to={{ pathname: videoInfo.videoId, state: { from: videoInfo.videoId } }}
               >
-                <h1 className="font-bold text-lg">{videoInfo[1]}</h1>
+                <h1 className="font-bold text-lg">{videoInfo.title}</h1>
               </Link>
               {/* <p className="text-sm text-gray-400">{videoInfo[2]}</p> */}
             </div>
