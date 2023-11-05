@@ -79,7 +79,7 @@ function QuizHome() {
               <QuizQuestion 
               question={quizData[quizIndex].question}
               answerArr={quizData[quizIndex].choices}
-              id={1}
+              id={quizIndex}
               correctAns={quizData[quizIndex].answer}
               nextQnToggle={triggerFn}/>
           </div>

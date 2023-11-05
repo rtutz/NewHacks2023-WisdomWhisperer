@@ -25,6 +25,9 @@ function QuizQuestion({ question, answerArr, id, correctAns, nextQnToggle }) {
     const trueIndex = selectionArr.findIndex((value) => value === true);
     if (answerArr[trueIndex] == correctAns){
       setCorrect(true);
+      setTimeout(() => {
+        setCorrect(null);
+      }, 500);
     }
     else {
       setCorrect(false)
