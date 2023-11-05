@@ -8,7 +8,12 @@ import { Link } from "react-router-dom";
 
 
 function SideBar () {
-    const coursesDict = {"Course 1":"C1", "Course 2":"C2", "Course 3":"C3", "Course 4":"C4"};
+    const coursesDict = {"Intro to Computers":"CS105"};
+
+    // Have a use effect here to get the data later on...
+    // Have another logic here such that if the link URL does not exist in the
+    // current state, then call the database again.
+    
     return (
         <div className="bg-background flex flex-col h-screen px-2 w-1/6 py-2 border-r">
             <AddCourseBtn/>
