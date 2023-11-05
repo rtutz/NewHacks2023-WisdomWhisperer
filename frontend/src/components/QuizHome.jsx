@@ -10,6 +10,12 @@ function QuizHome() {
     segments.pop(); // retrieves the last element of the array
     let courseID = segments.pop(); // retrieves the last element of the array
 
+    const [quizIndex, setQuizIndex] = useState(0)
+
+    const triggerFn = () => {
+      setQuizIndex(quizIndex + 1)
+    }
+
     const [data, setData] = useState(null);
     const endpoint = "https://www.youtube.com/"
   
@@ -36,7 +42,8 @@ function QuizHome() {
                 question={data.question}
                 answerArr={data.choices}
                 id={1}
-                correctAns={data.answer}/>
+                correctAns={data.answer}
+                nextQnToggle={triggerFn}/>
             </div>
             
         </div>

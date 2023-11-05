@@ -2,11 +2,18 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import FAB from './FAB';
 
-function QuizQuestion({ question, answerArr, id, correctAns }) {
+function QuizQuestion({ question, answerArr, id, correctAns, nextQnToggle }) {
   const [correct, setCorrect] = useState(null);
   const [selectionArr, setSelectionArr] = useState(() =>
     Array(answerArr.length).fill(false)
   );
+
+  const handleButtonClick = () => {
+    // Add a 1-second delay before calling the function
+    setTimeout(() => {
+      nextQnToggle();
+    }, 1000); // 1000 milliseconds = 1 second
+  };
 
   const handleSelection = (index) => {
     const newSelectionArr = Array(answerArr.length).fill(false);
@@ -25,6 +32,7 @@ function QuizQuestion({ question, answerArr, id, correctAns }) {
         setCorrect(null);
       }, 500);
     }
+    handleButtonClick()
   };
 
   return (
