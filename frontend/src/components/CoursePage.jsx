@@ -1,9 +1,13 @@
+import DisplayLectures from "./DisplayLectures";
+import SideBar from "./SideBar";
+
 function CoursePage() {
     console.log("IN COURSE PAGE");
     return (
-        <>
-            <h1>CoursePage</h1>
-        </>
+        <div className="flex">
+            <SideBar/>
+            <DisplayLectures/>
+        </div>
     )
 }
 

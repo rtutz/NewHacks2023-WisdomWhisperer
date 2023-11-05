@@ -16,7 +16,7 @@ function SideBar () {
             <ScrollArea className="mt-4">
                 {Object.entries(coursesDict).map(([key, value]) => (
                     <Button variant="outline" key={key} asChild className="mt-2 w-full justify-start">
-                        <Link to={"" + value}>{key}</Link>
+                        <Link to={"/home/" + value}>{key}</Link>
                     </Button>
                 ))}
             </ScrollArea>
