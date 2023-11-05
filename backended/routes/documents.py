@@ -12,10 +12,13 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 dotenv.load_dotenv()
 
-# current_dir = os.path.dirname(os.path.abspath(__file__))
-# key_path = os.path.join(current_dir, "GACKey.json")
-# os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = key_path
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "./GACKey.json"
+current_dir = os.path.dirname(os.path.abspath(__file__))
+key_path = os.path.join(current_dir, "../GACKey.json")
+
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = key_path
+
+
+# os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "../GACKey.json"
 
 
 def save_transcript_to_file(transcript):
@@ -54,6 +57,7 @@ def upload(transcript, courseName):
             redis_url=os.getenv("REDIS_URL"),  
             schema="../redis_schema.yaml",
         )
+        
     except Exception as e:
         print(f"Exception: {e}")
         rds = Redis.from_texts(
@@ -63,7 +67,8 @@ def upload(transcript, courseName):
             index_name=index_name,
         )
         index_created = True
-    
+    rds.write_schema("redis_schema.yaml")
+
     insert_embeddings(rds, texts)
     
     response_message = "Embeddings uploaded successfully"
