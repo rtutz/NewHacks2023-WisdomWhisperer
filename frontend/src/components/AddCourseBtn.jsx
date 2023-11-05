@@ -35,7 +35,30 @@ function AddCourseBtn() {
   };
 
   const handleClick = () => {
+    console.log("ADNJKASDHKASDNJAA name was submitted: " + value);
+    addCourse();
     navigate("/home/" + value); // navigates after button click
+    window.location.reload(); // refresh the page
+  };
+
+  const addCourse = async () => {
+    try {
+      const response = await fetch(
+        `http://127.0.0.1:5555/v1/addCourseList`,
+        {
+          method: "POST",
+          headers: {
+            // 'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ course: value }),
+        }
+      );
+
+      console.log("Res:", response);
+    } catch (error) {
+      console.error("There was a problem with the delete operation:", error);
+    }
   };
 
   return (
