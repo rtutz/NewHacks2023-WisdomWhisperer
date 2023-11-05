@@ -33,7 +33,7 @@ export default function Component() {
               className="w-12 h-12 rounded-full text-white flex items-center justify-center hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
               variant="default"
             >
-              <IoCloudUploadOutline />
+              <IoCloudUploadOutline size/>
             </Button>
           </li>
           <li>
