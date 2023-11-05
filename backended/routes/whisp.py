@@ -1,6 +1,4 @@
 # Note: you need to be using OpenAI Python v0.27.0 for the code below to work
-import json
-
 from flask import Blueprint, jsonify, request, make_response
 import openai
 import os
@@ -55,11 +53,14 @@ def transcribe(yturl):
                         print('Failed to delete %s. Reason: %s' % (file_path, e))
                 response = {"transcription": str(return_text), "uuid": uuid}
                 return response
-            except:
+            except Exception as e:
+                print(e)
                 raise Exception("We hit an error")
-        except:
+        except Exception as e:
+            print(e)
             raise Exception("Error transcribing")
-    except:
+    except Exception as e:
+        print(e)
         raise Exception("Error with URL")
 
 
