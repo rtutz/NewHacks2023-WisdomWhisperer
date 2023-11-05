@@ -3,6 +3,7 @@ import { Separator } from "@/components/ui/separator"
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button"
 import { useLocation } from "react-router-dom";
+import FAB from "./FAB";
 
 
 function DisplayLectures() {
@@ -18,6 +19,7 @@ function DisplayLectures() {
       ];
     return (
         <>
+        
         <div className="mx-auto flex flex-col">
         <Button variant="outline"><Link to={'quiz'}>Quiz</Link></Button>
 
@@ -34,8 +36,12 @@ function DisplayLectures() {
                 <Link to={{pathname:videoInfo[0], state: {from: videoInfo[0]}}}><h1 className="font-bold text-lg">{videoInfo[1]}</h1></Link>
                 <p className="text-sm text-gray-400">{videoInfo[2]}</p>
                 </div>
+                
             ))}
         </div>
+        </div>
+        <div className="">
+            <FAB/>
         </div>
         </>
         
