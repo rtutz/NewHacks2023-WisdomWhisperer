@@ -2,8 +2,15 @@ import Bubble from "./Bubble";
 import { useState } from "react";
 import { Separator } from "@/components/ui/separator";
 import FAB from "./FAB";
+import { useLocation } from "react-router-dom";
 
 function ChatPage() {
+  const location = useLocation();
+  let path = location.pathname; // "/home/C1/pENQyjXkcw4"
+  let segments = path.split("/"); // splits the path into an array of segments
+  segments.pop(); 
+  let courseID = segments.pop(); 
+  let courseName = courseID;
   const [messages, setMessages] = useState([]);
   const [isUser, setIsUser] = useState(false);
 
@@ -13,14 +20,14 @@ function ChatPage() {
     const content = e.target.currentMessage.value;
 
     if (content === "") return;
-
+    let query = content;
     await setMessages((prevMessages) => [
       ...prevMessages,
       { text: content, user: true },
     ]);
     const apiBody = {
-      query: { content },
-      courseName: "CS105",
+      query,
+      courseName,
     };
     const response = await fetch("http://127.0.0.1:5555/chat/get-response", {
       method: "POST",
