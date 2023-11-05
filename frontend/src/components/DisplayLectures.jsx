@@ -71,7 +71,7 @@ function DisplayLectures() {
   return (
     <>
       <div className="mx-auto flex flex-col">
-        <p className="text-4xl font-bold my-4">Previously Uploaded</p>
+        <p className="text-4xl font-bold my-4 text-center">Previously Uploaded</p>
         <Separator />
         <div className="my-5 grid grid-cols-2 gap-8">
           {lectureVideosTuple.map((videoInfo, index) => (
@@ -84,7 +84,7 @@ function DisplayLectures() {
               <Link
                 to={{ pathname: videoInfo.videoId, state: { from: videoInfo.videoId } }}
               >
-                <h1 className="font-bold text-lg">{videoInfo.title}</h1>
+                <h1 className="font-bold text-lg shortened-text">{videoInfo.title}</h1>
               </Link>
               {/* <p className="text-sm text-gray-400">{videoInfo[2]}</p> */}
             </div>

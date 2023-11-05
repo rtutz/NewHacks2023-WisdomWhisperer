@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.shortened-text {
+  width: 23rem;
+}
  
 @layer base {
   :root {
