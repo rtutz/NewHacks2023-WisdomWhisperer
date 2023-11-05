@@ -1,10 +1,12 @@
+import EmptyMainPage from "./EmptyMainPage";
 import SideBar from "./SideBar";
+
 
 function Home () {
     return (
         <div className="flex">
             <SideBar/>
-            <p>test</p>
+            <EmptyMainPage/>
         </div>
     )
 }

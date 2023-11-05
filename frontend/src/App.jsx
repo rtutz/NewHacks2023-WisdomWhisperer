@@ -1,6 +1,7 @@
 import Banner from './components/Banner'
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Home from './components/Home';
+import CoursePage from './components/CoursePage';
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <Router>
         <Routes>
           <Route exact path='/' element={<Banner/>}/>
-          <Route path='/home' element={<Home/>}/>
+          <Route exact path='/home' element={<Home/>}/>
+          <Route path='/home/:id' element={<CoursePage/>}/>
         </Routes>
       </Router>
     </>
