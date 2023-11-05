@@ -189,11 +189,12 @@ def notes():
         password=VIDEO_DB_PASSWORD)
     i = 0
     for item in videos:
-        video_info = redis_client.hgetall(item)
-        # print(video_info)
-        return_array.append({str(item, encoding='utf-8'): {"title": str(video_info.get(b'title'), encoding='utf-8'), "summary": str(video_info.get(b'summary'), encoding='utf-8')}})
-        print({str(item, encoding='utf-8'): {"title": str(video_info.get(b'title'), encoding='utf-8')}})
-        i += 1
+        if len(str(item, encoding='utf-8')) > 0:
+            video_info = redis_client.hgetall(item)
+            # print(video_info)
+            return_array.append({str(item, encoding='utf-8'): {"title": str(video_info.get(b'title'), encoding='utf-8'), "summary": str(video_info.get(b'summary'), encoding='utf-8')}})
+            print({str(item, encoding='utf-8'): {"title": str(video_info.get(b'title'), encoding='utf-8')}})
+            i += 1
     redis_client.close()
     return jsonify({"notes": return_array, "course": course})
 
