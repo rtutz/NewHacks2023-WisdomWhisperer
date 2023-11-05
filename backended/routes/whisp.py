@@ -10,6 +10,8 @@ import vertexai
 from vertexai.language_models import TextGenerationModel
 from yt_dlp import YoutubeDL
 
+from .documents import upload
+
 dotenv.load_dotenv()
 
 whisp = Blueprint('whisp', __name__)
@@ -117,6 +119,7 @@ def add():
                         password=PROCESSED_DB_PASSWORD)
                     redis_client.sadd(course, uuid)
                     redis_client.close()
+                    print(upload(transcript, course))
                 except:
                     return jsonify("We hit an error writing to database"), 500
 

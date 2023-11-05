@@ -20,10 +20,10 @@ chat = Blueprint('chat', __name__)
 
 dotenv.load_dotenv()
 
-current_dir = os.path.dirname(os.path.abspath(__file__))
-key_path = os.path.join(current_dir, "GACKey.json")
-
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = key_path
+# current_dir = os.path.dirname(os.path.abspath(__file__))
+# key_path = os.path.join(current_dir, "GACKey.json")
+# os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = key_path
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "./GACKey.json"
 
 
 embeddings = VertexAIEmbeddings()

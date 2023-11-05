@@ -2,13 +2,10 @@ from flask import Flask
 from flask_cors import CORS
 
 import dotenv
-
-from routes.chat import chat  # Importing the Blueprint
-from routes.whisp import whisp
-
 dotenv.load_dotenv()
 
 from routes.whisp import whisp
+from routes.chat import chat  # Importing the Blueprint
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "http://localhost:5555"}})  # Allow only specific origin
