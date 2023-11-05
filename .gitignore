@@ -2,7 +2,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,pycharm
 
 .env
-GACKey.json
+backended/GACKey.json
 
 ### macOS ###
 # General
