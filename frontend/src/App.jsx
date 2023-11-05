@@ -5,6 +5,7 @@ import CoursePage from './components/CoursePage';
 import Chat from './components/Chat';
 import SummaryHome from './components/SummaryHome';
 import QuizHome from './components/QuizHome';
+import UploadPage from './components/UploadPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path='/home/:id/:id2' element={<SummaryHome/>}/>
       <Route exact path='/home/:id/chat' element={<Chat/>}/>
       <Route exact path='/home/:id/quiz' element={<QuizHome/>}/>
+      <Route exact path='/home/:id/upload' element={<UploadPage/>}/>
     </Routes>
 </Router>
     </>

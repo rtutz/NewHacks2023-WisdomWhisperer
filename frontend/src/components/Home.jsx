@@ -8,6 +8,7 @@ function Home () {
             <SideBar/>
             <EmptyMainPage/>
         </div>
+        
     )
 }
 
