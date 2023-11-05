@@ -14,6 +14,7 @@ function DisplayLectures() {
   let courseID = segments.pop(); // retrieves the last element of the array
 
   const [lectureVideosTuple, setLectureVideosTuple] = useState([]);
+  const [existingVideoIds, setExistingVideoIds] = useState(new Set());
 
   const [title, setTitle] = useState("");
   const [urlID, setUrlID] = useState("");
@@ -21,6 +22,11 @@ function DisplayLectures() {
   useEffect(() => {
     console.log("displayLecture useEffect called");
     console.log("courseID:", courseID);
+
+    // Reset the state
+    setLectureVideosTuple([]);
+    setExistingVideoIds(new Set());
+
     getContentData();
   }, [location]);
 
@@ -34,23 +40,34 @@ function DisplayLectures() {
         },
         body: JSON.stringify({ course: courseID }),
       });
-
+  
       const responseData = await contentResponse.json();
-
+  
+      const newLectureVideos = [];
+  
       for (let note of responseData.notes) {
-        const videoIdKey = Object.keys(note)[0]; // Get the first key of the note object
-        console.log("videoIDKEY:", videoIdKey, "urlID:", urlID);
-        setLectureVideosTuple((prevState) => [
-          ...prevState,
-          { title: note[videoIdKey].title, videoId: videoIdKey },
-        ]);
-        console.log("added to videos tuple: ", setLectureVideosTuple);
+        const videoIdKey = Object.keys(note)[0];
+        if (!existingVideoIds.has(videoIdKey)) {
+          newLectureVideos.push({ title: note[videoIdKey].title, videoId: videoIdKey });
+          setExistingVideoIds(prevState => new Set([...prevState, videoIdKey]));
+        } else {
+          console.log("video already exists: ", videoIdKey);
+        }
       }
+  
+      // Update the state with the new videos, if any
+      if (newLectureVideos.length > 0) {
+        setLectureVideosTuple(prevState => [
+          ...prevState,
+          ...newLectureVideos,
+        ]);
+      }
+  
     } catch (error) {
       console.error("There was a problem with the delete operation:", error);
     }
   };
-
+  
   return (
     <>
       <div className="mx-auto flex flex-col">
