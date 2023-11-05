@@ -1,6 +1,7 @@
 import Bubble from "./Bubble";
 import { useState } from "react";
 import { Separator } from "@/components/ui/separator"
+import FAB from './FAB';
 
 
 function ChatPage() {
@@ -41,6 +42,7 @@ function ChatPage() {
             <form onSubmit={handleMessageSubmit} className="w-8/12 fixed bottom-2">
                 <input type="text" className="w-full bg-gray-500-spotify p-5 rounded-full" placeholder="Type your message here..." name="currentMessage" />
             </form>
+            <FAB/>
         </div>
     )
     

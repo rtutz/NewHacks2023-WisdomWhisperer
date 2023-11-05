@@ -1,6 +1,7 @@
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import FAB from './FAB'
 
 function AudioInput() {
   const handleSubmit = () => {
@@ -41,6 +42,7 @@ function AudioInput() {
           </div>
         </form>
       </div>
+      <FAB/>
     </div>
   )
 }

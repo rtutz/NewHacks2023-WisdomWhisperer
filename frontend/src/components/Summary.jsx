@@ -2,6 +2,8 @@ import React, { useState , useRef} from "react";
 import { Button } from "@/components/ui/button";
 import YouTube from 'react-youtube';
 import { useLocation } from 'react-router-dom'
+import FAB from './FAB';
+
 
 
 function Summary() {
@@ -31,6 +33,7 @@ function Summary() {
 
         <p className="text-lg text-gray-700 dark:text-gray-300">{summary}</p>
       </div>
+      <FAB/>
     </>
   );
 }

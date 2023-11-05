@@ -6,7 +6,14 @@ function QuizHome() {
     return (
         <div className="flex">
             <SideBar/>
-            <QuizQuestion/>
+            <div className="w-full flex justify-center">
+                <QuizQuestion 
+                question="What is the powerhouse of the cell?"
+                answerArr={["Cytoplasm", "Mitochondria", "Dogs", "Cats"]}
+                id={1}
+                correctAns={"Mitochondria"}/>
+            </div>
+            
         </div>
     )
 }

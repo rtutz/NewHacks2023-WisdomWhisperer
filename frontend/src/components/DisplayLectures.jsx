@@ -3,10 +3,14 @@ import { Separator } from "@/components/ui/separator"
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button"
 import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 import FAB from "./FAB";
+import axios from 'axios';
 
 
 function DisplayLectures() {
+
+
     const location = useLocation()
     let path = location.pathname; // "/home/C1/pENQyjXkcw4"
     let segments = path.split("/"); // splits the path into an array of segments
@@ -21,7 +25,6 @@ function DisplayLectures() {
         <>
         
         <div className="mx-auto flex flex-col">
-        <Button variant="outline"><Link to={'quiz'}>Quiz</Link></Button>
 
         <p className="text-4xl font-bold my-4">Previously Uploaded</p>
         <Separator />
