@@ -43,9 +43,6 @@ def setup_database_and_retriever(courseName):
     retriever = rds.as_retriever(search_type="similarity", search_kwargs={"k": 3})
     return retriever
 
-default_course_name = 'topic1'
-retriever = setup_database_and_retriever(default_course_name)
-
 
 def handle_query(qa, user_input):
     query = f"###Prompt {user_input}"
