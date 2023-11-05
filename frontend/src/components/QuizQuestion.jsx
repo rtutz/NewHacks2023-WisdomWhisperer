@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
-function QuizQuestion({ question, answerArr, id, correctAns }) {
+function QuizQuestion({ question, answerArr, id, correctAns, setcurrentQ }) {
   const [correct, setCorrect] = useState(null);
   const [selectionArr, setSelectionArr] = useState(() =>
     Array(answerArr.length).fill(false)

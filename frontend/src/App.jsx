@@ -4,6 +4,7 @@ import Home from './components/Home';
 import CoursePage from './components/CoursePage';
 import Chat from './components/Chat';
 import Test from './components/test';
+import QuizHome from './components/QuizHome';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path='/home/:id' element={<CoursePage/>}/>
       <Route path='/home/:id/:id2' element={<Test/>}/>
       <Route exact path='/home/:id/chat' element={<Chat/>}/>
+      <Route exact path='/home/:id/quiz' element={<QuizHome/>}/>
     </Routes>
 </Router>
     </>
