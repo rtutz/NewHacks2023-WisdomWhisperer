@@ -1,15 +1,13 @@
-import EmptyMainPage from "./EmptyMainPage";
 import SideBar from "./SideBar";
+import Summary from "./Summary";
 
-
-function Home () {
+function SummaryHome () {
     return (
         <div className="flex">
             <SideBar/>
-            <EmptyMainPage/>
+            <Summary/>
         </div>
-        
     )
 }
 
-export default Home;
+export default SummaryHome;

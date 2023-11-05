@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import FAB from './FAB';
 
 function QuizQuestion({ question, answerArr, id, correctAns }) {
   const [correct, setCorrect] = useState(null);
@@ -27,7 +28,7 @@ function QuizQuestion({ question, answerArr, id, correctAns }) {
   };
 
   return (
-    <>
+    <div>
       <div className="flex flex-col justify-center space-y-2 min-h-screen">
         <h2 className="text-4xl font-bold text-black dark:text-white">
           Question {id}
@@ -57,8 +58,9 @@ function QuizQuestion({ question, answerArr, id, correctAns }) {
         >
           Check Answer
         </Button>
+        <FAB/>
       </div>
-    </>
+    </div>
   );
 }
 

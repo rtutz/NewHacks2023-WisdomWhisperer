@@ -1,15 +1,12 @@
-import EmptyMainPage from "./EmptyMainPage";
+import ChatPage from "./ChatPage";
 import SideBar from "./SideBar";
-
-
-function Home () {
+function Chat () {
     return (
         <div className="flex">
             <SideBar/>
-            <EmptyMainPage/>
+            <ChatPage/>
         </div>
-        
     )
 }
 
-export default Home;
+export default Chat;
