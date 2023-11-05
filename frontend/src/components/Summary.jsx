@@ -66,7 +66,7 @@ function Summary() {
     <>
       <div className="flex flex-col m-8 gap-4 min-h-screen">
         <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">
-          {urlID}
+          {name}
         </h1>
         <YouTube videoId={urlID} opts={opts}/>
 
