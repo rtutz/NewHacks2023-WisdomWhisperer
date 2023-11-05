@@ -1,0 +1,13 @@
+text:
+- name: content
+  no_index: false
+  no_stem: false
+  sortable: false
+  weight: 1
+  withsuffixtrie: false
+vector:
+- algorithm: FLAT
+  datatype: FLOAT32
+  dims: 768
+  distance_metric: COSINE
+  name: content_vector
