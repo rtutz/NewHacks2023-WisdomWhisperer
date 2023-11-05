@@ -45,9 +45,13 @@ function Summary() {
 
         for (let note of responseData.notes) {
           const videoIdKey = Object.keys(note)[0];  // Get the first key of the note object
-          if (videoIdKey === videoId) {
-              setName(title);
-              setSummary(summary);
+          console.log("videoIDKEY:", videoIdKey, "urlID:", urlID);
+
+          if (videoIdKey === urlID) {
+
+              setName(note[videoIdKey].title);
+              setSummary(note[videoIdKey].summary);
+
           }
         }
         console.log('content retrieved.', responseData);
