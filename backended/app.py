@@ -10,7 +10,7 @@ from routes.whisp import whisp
 
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "http://localhost:5555"}})  # Allow only specific origin
+CORS(app, resources={r"/*": {"origins": "*"}})  # Allow any origin
 
 
 app.register_blueprint(whisp, url_prefix='/v1')  # Registering the Blueprint
