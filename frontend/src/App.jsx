@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Home from './components/Home';
 import CoursePage from './components/CoursePage';
 import Chat from './components/Chat';
-import Test from './components/test';
+import SummaryHome from './components/SummaryHome';
 import QuizHome from './components/QuizHome';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
       <Route exact path='/' element={<Banner/>}/>
       <Route exact path='/home' element={<Home/>}/>
       <Route path='/home/:id' element={<CoursePage/>}/>
-      <Route path='/home/:id/:id2' element={<Test/>}/>
+      <Route path='/home/:id/:id2' element={<SummaryHome/>}/>
       <Route exact path='/home/:id/chat' element={<Chat/>}/>
       <Route exact path='/home/:id/quiz' element={<QuizHome/>}/>
     </Routes>

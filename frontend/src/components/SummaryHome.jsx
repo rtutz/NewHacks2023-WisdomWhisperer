@@ -1,7 +1,7 @@
 import SideBar from "./SideBar";
 import Summary from "./Summary";
 
-function Test () {
+function SummaryHome () {
     return (
         <div className="flex">
             <SideBar/>
@@ -10,4 +10,4 @@ function Test () {
     )
 }
 
-export default Test;
+export default SummaryHome;
