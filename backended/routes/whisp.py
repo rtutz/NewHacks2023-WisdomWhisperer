@@ -190,4 +190,5 @@ def notes():
         return_array.append({str(item, encoding='utf-8'): {"title": str(video_info.get(b'title'), encoding='utf-8'), "summary": str(video_info.get(b'title'), encoding='utf-8')}})
         print({str(item, encoding='utf-8'): {"title": str(video_info.get(b'title'), encoding='utf-8')}})
         i += 1
+    redis_client.close()
     return jsonify({"notes": return_array, "course": course})
