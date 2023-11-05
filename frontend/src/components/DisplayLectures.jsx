@@ -4,9 +4,9 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 function DisplayLectures() {
     const lectureVideosTuple = [
         ["pENQyjXkcw4", "Introduction to React", "2 years ago"],
-        ["abc123xyz456", "JavaScript Fundamentals", "1 year ago"],
-        ["def789lmn012", "Advanced CSS Techniques", "3 months ago"],
-        ["456ghi789jkl", "Node.js Basics", "6 months ago"],
+        ["GGGjnBkN8xk", "JavaScript Fundamentals", "1 year ago"],
+        ["bN8mtW-XHFU", "Advanced CSS Techniques", "3 months ago"],
+        ["yGNGtd-d3ro", "Node.js Basics", "6 months ago"],
       ];
     return (
         <>
