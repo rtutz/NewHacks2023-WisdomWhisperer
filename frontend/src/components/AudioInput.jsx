@@ -9,7 +9,7 @@ function AudioInput() {
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Enter YouTube Link</h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Please enter the URL of the YouTube video you want to share.
+            Please enter the YouTube URL of the lecture video.
           </p>
         </div>
         <form className="mt-8 space-y-6">
