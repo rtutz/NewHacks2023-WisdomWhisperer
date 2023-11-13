@@ -8,6 +8,12 @@ import re
 
 
 def download_audio(url: str) -> dict:
+    """
+    Downloads YouTube video from URL
+
+    :param url: (str) URL of video to be downloaded
+    :return: (dict) Dictionary with video information
+    """
     URLS = [url]
     regex = "^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube(-nocookie)?\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|live\/|v\/)?)([\w\-]+)(\S+)?$"
     uuid = re.search(regex, url, re.IGNORECASE).group(6)
@@ -33,7 +39,16 @@ def download_audio(url: str) -> dict:
             return {'response': error_code}
 
 
+
 def split_audio(file_path: str, file_name: str) -> list:
+    """
+    Splits audio file into smaller parts ~10.0 MB
+
+    :param file_path: (str) The path of the file to be split (downloads/sV6uuMAnJUE/)
+    :param file_name: (str) The name of the file to be split (/sV6uuMAnJUE.mp3)
+    :return: list_of_chunks (list): List of new split audio files (['downloads/sV6uuMAnJUE/chunk_0.mp3',
+        'downloads/sV6uuMAnJUE/chunk_1.mp3'])
+    """
     # https://stackoverflow.com/questions/36632511/split-audio-file-into-several-files-each-below-a-size-threshold
     list_of_chunks = []
     myaudio = AudioSegment.from_file(file_path + file_name, "mp3")
